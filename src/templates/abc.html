@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile Page</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="msg">{{ msg }}</div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="C:\Users\vatsa\Downloads\sign.jpg" alt="Profile Picture" width="100" height="200">
+          <div class="card-body">
+            <h5 class="card-title">{{session.name}}</h5>
+            <p class="card-text">{{session.describe}}</p>
+          </div>
+        </div>
+        {%if session.entity=="Organisation"%}
+          <div class="d-flex justify-content-center">
+            <a href="{{url_for('create_job_opening')}}">
+              <br>
+            <br>
+              <input type="button"
+              class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" value="Create Job Opening" >
+            </a>
+            
+          </div>
+          {% else %}
+            <div class="d-flex justify-content-center">
+              <a href="{{url_for('apply_to_job')}}">
+                <br>
+              <br>
+                <input type="button"
+                class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" value="Check Jobs" >
+              </a>
+            </div>
+        {%endif%}
+
+      </div>
+      <div class="col-md-8">
+        <h2>User Information</h2>
+        <div style="position:absolute; top: 0px;right:0px">
+          <a href="http://localhost:5000/logout" target="_blank">Logout</a>
+          <a href="http://localhost:5000/delete_user" target="_blank">Delete Account</a>
+          </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-6">
+            <h5>Name:</h5>
+            <p>{{session.name}}</p>
+            <h5>Email:</h5>
+            <p>{{session.email}}</p>
+            <h5>Location:</h5>
+            <p>New York, USA</p>
+          </div>
+          <div class="col-md-6">
+            <h5>Identity:</h5>
+            <p>{{session.entity}}</p>
+            <h5>Area:</h5>
+            <p>{{session.area}}</p>
+            {%if session.entity=="Applicant"%}
+              <div id="ifYes">
+              <h5>Interests:</h5>
+              <p>Programming, Reading, Music</p>
+              </div>
+            {%endif%}
+            <h5>Link to website:</h5>
+            
+              
+            <a href={{session.url}} target="_blank">{{session.url}}</a>
+            
+            <div>
+              <style>
+ 
+                td {
+                       width: 150px;
+                       text-align: center;
+                       border: 1px solid black;
+                       padding: 5px;
+                     }
+               </style>
+               {% if session.entity=="Organisation" and data!=[] %}
+               <table>
+                <thead>
+                  <tr>
+                      <th>Job id</th>
+                      <th>Job role</th>
+                      <th>Salary</th>
+                      <th>Job Location</th>
+                      <th>Company username</th>
+                  </tr>
+                  </thead>
+                  
+                  <tbody>
+                  
+                   {% for row in data %}    
+                          <tr>
+                              <td>{{row[0]}}</td>
+                              <td>{{row[5]}}</td>
+                              <td>{{row[-3]}}</td>
+                              <td>{{row[-2]}}</td>
+                              <td>{{row[-1]}}</td>
+                              
+
+
+                              <td><a href="http://localhost:5000/delete_jobposting/{{row[0]}}">Delete</a></td>
+                          </tr>
+                    {% endfor %}
+                  </tbody>
+                  
+
+              </table>
+              {%else%}
+              <table>
+                <thead>
+                  {%if data!=[]%}
+                  <tr>
+                      <th>Job id</th>
+                      <th>Company</th>
+                      <th>Job role</th>
+                      <th>Salary</th>
+                      <th>Job Location</th>
+                      <th>Link</th>
+                      
+                  </tr>
+                  {%endif%}
+                  </thead>
+                  
+                  <tbody>
+                    
+                   {% for row in data %}    
+                          <tr>
+                              <td>{{row[0]}}</td>
+                              <td>{{row[1]}}</td>
+                              <td>{{row[-5]}}</td>
+                              <td>{{row[3]}}</td>
+                              <td>{{row[-3]}}</td>
+                              
+
+
+                              <td><a href="http://localhost:5000/withdraw/{{row[0]}}">Delete</a></td>
+                          </tr>
+                    {% endfor %}
+                  </tbody>
+                  
+
+              </table>
+              {%endif%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

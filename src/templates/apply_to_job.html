@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JOB OPENINGS</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <h1 class="text-center mt-3 mb-5">JOB OPENINGS</h1>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card mb-3">
+          <div class="card-header bg-info text-white">
+            JOBS
+          </div>
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Job Id</th>
+                  <th>Company Name</th>
+                  <th>Company Email</th>
+                  <th>Domain</th>
+                  <th>Description</th>
+                  <th>Job Role</th>
+                  <th>Website</th>
+                  
+                  <th>Salary</th>
+                  
+                  
+                  <th>Location</th>
+                  <th>Company Username</th>
+                  <th>Link</th>
+                </tr>
+               
+              </thead>
+              <tbody>
+                
+                {% for job in data %}
+               
+                <tr>
+                  {% for item in job %}
+                  <td>{{item}}</td>
+                  {% endfor %}
+                  <td>
+
+                <a href="applying/{{job[0]}}"><button>Apply</button></a>
+            
+                </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+   
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Include Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper-core.min.js"
+    integrity="sha384-Nr5Y5vUGfnSkav1gbkgHtk3q6jvY9PjFZfE5ZwLp8RvMFj1r5G5B5eRPBj0vJGX9"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
