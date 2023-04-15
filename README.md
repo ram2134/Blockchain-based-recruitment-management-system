@@ -53,3 +53,5 @@ Run the command:
 Open your browser and navigate to localhost:5000
 
 If you have followed all the above instructions carefully you will able to see the below screen.
+![App Screenshot](login.png)
+
