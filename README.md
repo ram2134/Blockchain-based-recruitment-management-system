@@ -23,7 +23,7 @@ Run the command
 You will get some accounts with their private keys.
 
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](images/accounts.png)
 
 
 ## Setup Metamask
@@ -53,3 +53,5 @@ Run the command:
 Open your browser and navigate to localhost:5000
 
 If you have followed all the above instructions carefully you will able to see the below screen.
+
+![App Screenshot](images/login.png)
