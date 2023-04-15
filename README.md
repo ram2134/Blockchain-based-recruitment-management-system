@@ -23,7 +23,7 @@ Run the command
 You will get some accounts with their private keys.
 
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](accounts.png)
 
 
 ## Setup Metamask
